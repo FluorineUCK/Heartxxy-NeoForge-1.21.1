@@ -1,0 +1,72 @@
+plugins {
+    id "java-library"
+    id "net.neoforged.moddev" version "2.0.141"
+    id "org.jetbrains.kotlin.jvm"
+}
+
+version = mod_version
+group = mod_group_id
+
+base { archivesName = "pregxxy-neoforge" }
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+neoForge {
+    version = neo_version
+    runs {
+        client { client() }
+        server {
+            server()
+            programArgument "--nogui"
+        }
+        configureEach { logLevel = org.slf4j.event.Level.INFO }
+    }
+    mods {
+        pregxxy { sourceSet(sourceSets.main) }
+    }
+}
+
+configurations {
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://thedarkcolour.github.io/KotlinForForge/" }
+}
+
+dependencies {
+    implementation files("libs/hexcasting-neoforge-${minecraft_version}-${hexcasting_version}.jar")
+    localRuntime files("libs/hexcasting-neoforge-${minecraft_version}-${hexcasting_version}.jar")
+    localRuntime files("libs/paucal-${paucal_version}+${minecraft_version}-neoforge.jar")
+    localRuntime files("libs/inline-${minecraft_version}-${inline_version}-neoforge-devruntime.jar")
+    localRuntime files("libs/caelus-neoforge-${caelus_version}.jar")
+    localRuntime files("libs/Patchouli-${minecraft_version}-${patchouli_version}-NEOFORGE.jar")
+    localRuntime files("libs/architectury-neoforge-${architectury_version}.jar")
+    localRuntime files("libs/cloth-config-neoforge-15.0.130.jar")
+    implementation "thedarkcolour:kotlinforforge-neoforge:${kotlin_for_forge_version}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+processResources {
+    inputs.property "version", project.version
+    filesMatching("META-INF/neoforge.mods.toml") { expand "version": project.version }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 21
+}
+
+kotlin {
+    jvmToolchain(21)
+    compilerOptions { freeCompilerArgs.add("-Xjvm-default=all") }
+}
+
+jar {
+    from("LICENSE") { rename { "${it}_pregxxy" } }
+}

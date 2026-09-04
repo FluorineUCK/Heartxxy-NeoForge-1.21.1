@@ -1,0 +1,22 @@
+package io.github.soccyuwu.pregxxy.casting.mishaps
+
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.Mishap
+import at.petrak.hexcasting.api.pigment.FrozenPigment
+import at.petrak.hexcasting.api.utils.TreeList
+import at.petrak.hexcasting.api.utils.aqua
+import net.minecraft.world.entity.Entity
+import net.minecraft.world.item.DyeColor
+
+class MishapCantBreed(private val entity: Entity, private val isGreater: Boolean) : Mishap() {
+    override fun accentColor(ctx: CastingEnvironment, errorCtx: Context): FrozenPigment = dyeColor(DyeColor.BROWN)
+
+    override fun execute(env: CastingEnvironment, errorCtx: Context, stack: TreeList<Iota>): TreeList<Iota> {
+        env.mishapEnvironment.yeetHeldItemsTowards(entity.position())
+        return stack
+    }
+
+    override fun errorMessage(ctx: CastingEnvironment, errorCtx: Context) =
+        error(if (isGreater) "cantBreedStrong" else "cantBreed", entity.name.copy().aqua)
+}

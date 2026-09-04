@@ -1,0 +1,23 @@
+{
+  "pregxxy.book.patterns.spells.pregxxy.name": "心育图样",
+  "pregxxy.book.patterns.spells.pregxxy.breed.details.1": "使目标进入繁殖状态。目标无法繁殖时会发生事故。消耗约一个紫水晶碎片。",
+  "pregxxy.book.patterns.spells.pregxxy.breed.details.2": "这是一种细微而原始的心智操纵，只有简单的动物会受其影响。",
+  "pregxxy.book.patterns.spells.nurture.name": "催育",
+  "pregxxy.book.patterns.spells.nurture.details.1": "加速目标成长，效果如同喂食合适的食物。消耗 2 个紫水晶粉。对成年目标无害但也没有作用。",
+  "pregxxy.book.patterns.spells.super_pregxxy.name": "强效繁育",
+  "pregxxy.book.patterns.spells.super_pregxxy.details.1": "立即杀死目标，并用其物质与媒质形成两个幼体。无法产生后代的生物会结晶为媒质。",
+  "pregxxy.book.patterns.spells.super_pregxxy.details.2": "每点目标生命值消耗一个紫水晶碎片；悦灵需要约 30 个碎片。敌对生物必须足够虚弱。",
+  "pregxxy.book.patterns.spells.get_age.name": "柯罗诺斯之净化",
+  "pregxxy.book.patterns.spells.get_age.details.1": "返回目标以刻计的年龄。负值表示距离成年时间，正值表示繁殖冷却；无常规年龄则返回空值。",
+  "hexcasting.action.pregxxy:pregxxy": "繁殖",
+  "hexcasting.action.pregxxy:greater_pregxxy": "强效繁育",
+  "hexcasting.action.pregxxy:nurture": "催育",
+  "hexcasting.action.pregxxy:get_age": "柯罗诺斯之净化",
+  "hexcasting.action.book.pregxxy:pregxxy": "繁殖",
+  "hexcasting.mishap.cantBreed": "需要可繁殖的目标，却得到了 %s",
+  "hexcasting.mishap.cantBreedStrong": "需要意志足够薄弱的生物，却得到了 %s",
+  "hexcasting.mishap.cantNurture": "需要具有年龄的实体，却得到了 %s",
+  "text.pregxxy.pregxxy": "使目标实体繁殖！",
+  "pregxxy.configuration.client_config_option": "客户端配置选项",
+  "pregxxy.configuration.server_config_option": "服务端配置选项"
+}
